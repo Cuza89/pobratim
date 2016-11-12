@@ -1,0 +1,12 @@
+-preko programa Git Shell konzole nadjem lokaciju gde cu snimiti folder za github
+-sa sajta kopiram link, i untar foldera gde zelim pisem " git clone i link repositorija "
+-unutar tog foldera mogu da stavljam sve, ali da bi bilo uplodavno na sajt pisemo sledece
+
+-git add index.html(na primer) ili git add -A (ubacuje sve)
+-git status (za status promene) 
+-git commit -m "PORUKA"(za poruku promene koju smo obavili)
+-git push (upload fajla i promene)
+
+
+-kad smo u direktorijumu Github repositorija mozemo i povuci dokumente sa sajta
+-git pull
