@@ -1,2 +1,2 @@
 # pobratim
-Milan i Tramp
+Milan i Tramp, JS
