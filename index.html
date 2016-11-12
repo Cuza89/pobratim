@@ -4,12 +4,106 @@
 
 <body>
 
-<<<<<<< HEAD
-<h1>Pobratim 2</h1>
-=======
-<h1>Pobratim</h1>
->>>>>>> 09f5eef4a1145945d11b80cfceaf54ea94ab65dc
 
+
+
+<script>
+
+function Baner(x,y,bwidth,bheight,src,Xmax,Ymax){ // konstruktor Baner ima parametre
+this.x=x;															//za x-pozicija,y-pozicija,bwidth-sirina slike,
+this.y=y;														//bheight-visina slike, src-link, putanja do slike,
+this.bwidth=bwidth;									//Xmax-maximum x, Ymax- maximum y, korak-brojac
+this.bheight=bheight;
+this.src=src;
+this.Xmax=Xmax;
+this.Ymax=Ymax;
+this.korak=2;
+
+	this.crtaj=function(x,y){	// crtaj metoda kreira IMG tag, stavlja atribute, postavlja slike na svoje pozicije 
+	this.x=x;						
+	this.y=y;
+	this.element=document.createElement("IMG");
+	this.element.style.cssText="width:"+this.bwidth+"px;height:"+this.bheight+"px; position:absolute;";
+	this.element.setAttribute("src",this.src);
+	this.element.style.left=this.x+"px";
+	this.element.style.top=this.y+"px";
+
+	this.element.addEventListener('click',function(){	//na klik event 
+	alert("Živeo TRAMP !!!");
+	this.style.boxShadow = "10px 10px 23px #000000";
+	document.body.style.backgroundImage="url('zastava.jpg')";
+	document.body.style.backgroundRepeat="no-repeat";
+	document.body.style.backgroundSize="cover";
+	});
+
+	var interval; // definisem promenljivu interval
+
+	this.element.onmouseover=function(){ // onmouseover event postavlja trampa u stanje smeha
+	interval=setInterval(function(){tramp.pomeraj2(tramp.x,tramp.y+tramp.korak)},120);
+	// interval dobija vrednost setInterval
+	};
+
+	this.element.onmouseout=function(){ // onmouseout event postavlja trampa u pocetnu poziciju
+	clearInterval(interval);
+	//interval gubi vrednost setInteval
+	};
+
+
+	document.body.appendChild(this.element);
+
+
+	} //***Kraj metode crtaj
+
+	this.pomeraj=function(x,y){ // metoda pomeraj pomera objekat po X osi
+	this.x=x;
+	this.y=y;
+
+		if(this.x>this.Xmax){
+		this.korak*=-1;
+		}else if(this.x<this.Ymax+100){
+		this.korak*=-1;
+		}
+	this.element.style.left=this.x+"px";
+	this.element.style.top=this.y+"px";
+	}
+
+	this.pomeraj2=function(x,y){ // pomeraj2 metoda pomera po Y osi
+	this.x=x;
+	this.y=y;
+	/*
+	if(this.y>this.Ymax){
+	this.korak-=4;
+	}else if(this.y<0){
+	this.korak+=4;
+	}*/
+	if(this.y<this.Ymax){
+		this.korak*=-1;
+		}else if(this.y>0){
+		this.korak*=-1;
+		}	
+		
+	this.element.style.left=this.x+"px";
+	this.element.style.top=this.y+"px";
+	}
+
+
+} ///***KRAJ KONSTRUKTORA
+
+/////////////**************POBRATIM*****Kloniranje konstruktora u objekat pobratim i poziv 
+var pobratim=new Baner(10,10,380,500,"pobratim.jpg",780,280);
+pobratim.crtaj(420,10);
+//blok.pomeraj(300,10);
+
+setInterval(function(){pobratim.pomeraj(pobratim.x+pobratim.korak,pobratim.y)},20);
+
+
+////////////**************TRAMP******Kloniranje konstrukora u objekat tramp i iscrtavanje
+var tramp=new Baner(10,10,400,280,"tramp.png",1,300);
+
+tramp.crtaj(10,340);
+
+
+</script>
 </body>
 
 
